@@ -1,37 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <script src="/jquery-3.6.0.min.js"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Frontend Mentor | Rock, Paper, Scissors</title>
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
   
-  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <body>
 
-  Score
-  Rules
+    <header>
+      <img class="logo" src="./images/logo.svg" alt="" />
+      <div class="scoreBoard">
+        <p>SCORE</p>
+        <div class="scoreText">12</div>
+      </div>
+    </header>
 
-  You Picked
-  The House Picked
+    <main>
+      <section class="chooseMenu">
 
-  You Win
-  You Lose
+        <div class="choiceSlot 2 paper click" id="paper">
+          <img src="" alt="" />
+        </div>
 
-  Play Again
+        <div class="choiceSlot 3 scissors click" id="scissors">
+          <img src="./images/icon-scissors.svg" alt="" />
+        </div>
+        
+        <div class="choiceSlot 1 rock click" id="rock">
+          <img src="" alt="" />
+        </div>
+    <img class="triangle" src="./images/bg-triangle.svg" alt="" />
+     
+      </section>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
+      <section class="battleMenu">
+        <!--Players choice-->
+        <div class="playerContainer">
+          <p>YOU PICKED</p>
+          <div class="choiceSlot playerSlot">
+            <img src="" alt="" />
+          </div>
+        </div>
 
 
-  
-  <div class="attribution">
+      <!--House choice-->
+        <div class="houseContainer">
+          <p>THE HOUSE PICKED</p>
+          <div class="emptySlot choiceSlot"> 
+            <img src="" alt="">
+          </div>
+        </div>
+      </section>
+
+      <div class="rulesMenu">
+         <div><p>RULES</p> <small class="closeBtn click">&#x2715</small></div>
+        <img src="./images/image-rules.svg" alt="">
+      </div>
+
+      <button class="rulesBtn click">RULES</button>
+    </main>
+
+    <script src="/app.js"></script>
+    <!-- 
+ <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Dun</a>.
   </div>
-</body>
+  --></body>
 </html>
