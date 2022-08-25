@@ -39,7 +39,7 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  border: 4px solid hsl(217, 16%, 45%);
+  border: 3px solid hsl(217, 16%, 45%);
   border-radius: 1rem;
 
   width: 43.5rem;
@@ -91,7 +91,7 @@ header {
   display: flex;
   flex-wrap: wrap;
 
-  width: 29.2rem;
+  width: 35.5rem;
 
 
   margin-top: 8vh;
@@ -107,8 +107,8 @@ header {
   justify-content: center;
   position: relative;
 
-  height: 8.951rem;
-  border-width: 1.5rem;
+  height: 9.62rem;
+  border-width: 1.187rem;
 
 
   aspect-ratio: 1;
@@ -124,7 +124,6 @@ header {
   aspect-ratio: auto;
 }
 
-
 .triangle {
   position: absolute;
 
@@ -138,16 +137,18 @@ header {
 
 /*Choice styles*/
 #rock {
-margin-left: 8.5rem;
+margin-left: 11.6rem;
 margin-top: 2.2rem;
 }
 
 #paper {
-  margin-left: 0rem;
+  margin-left: 3rem;
+  margin-top: .2rem;
 }
 
 #scissors {
-  margin-left: 5.2rem;
+  margin-left: 5.4rem;
+  margin-top: .2rem;
 }
 
 .rock {
@@ -157,6 +158,7 @@ margin-top: 2.2rem;
 
 .rock img {
   content: url("./images/icon-rock.svg");
+  height: 42% !important;
 }
 
 .paper {
@@ -181,6 +183,7 @@ margin-top: 2.2rem;
 .battleMenu {
   display: none;
   justify-content: space-between;
+  align-items: center;
   margin-top: 9.5vh;
 }
 
@@ -194,8 +197,11 @@ margin-top: 2.2rem;
 }
 
 .playerContainer{
-  margin-right: 6.8125rem;
-  margin-left: -2.8rem;
+ margin-right: 2.5rem;
+}
+
+.houseContainer{
+  margin-left:  2.5rem;
 }
 
 .playerSlot {
@@ -230,6 +236,44 @@ aspect-ratio: 1;
   flex-direction: column;
 
 }
+
+.gameResults{
+  position: relative;
+   text-align: center;
+
+   overflow: hidden;
+   white-space: nowrap;
+
+   width: 0;
+   opacity: 0;
+
+
+   margin: 2.5rem;
+}
+
+.gameResults p{
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: .15rem;
+  margin: 0;
+}
+
+.gameResults button{
+
+  font-weight: 600;
+  letter-spacing: .15rem;
+
+
+  width: 13.75rem;
+  height: 3rem;
+
+  border-radius: 0.5em;
+  border-style: solid;
+
+  margin-top: 1.2rem;
+  margin-bottom: .7rem;
+}
+
 
 
 /*rules*/
@@ -296,9 +340,9 @@ aspect-ratio: 1;
   right: 2.2vw;
   align-self: flex-end;
 
-  font-weight: 600;
+  
   font-size: 0.9em;
-  letter-spacing: 0.1vw;
+  letter-spacing: 0.2vw;
 }
 
 .click:hover{

@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  let transitionTime = 300; //Fade in/out time
+  let houseDelay = 1000; // Take time to decide
 
   //Retrieve score from storage
   let score = localStorage.getItem("score");
@@ -14,41 +16,67 @@ $(document).ready(function () {
   });
 
   // Update player slot and switch to battle menu
-  let beginGame = (choice) => {
+   let beginGame = (choice) => {
+   
     //switch to battle menu
-    $(".chooseMenu").fadeOut(300);
-    $(".battleMenu").css("display", "flex").hide().fadeIn(1000);
+    $(".chooseMenu").fadeOut(transitionTime);
+    setTimeout(() => {
+      $(".battleMenu")
+        .css("display", "flex")
+        .hide()
+        .fadeIn(transitionTime * 2);
+    }, transitionTime);
 
     //Update players slot
     switch (choice) {
       case 1:
         $(".playerSlot").addClass("rock");
+        console.log("PLAYER CHOSE ROCK");
         break;
       case 2:
         $(".playerSlot").addClass("paper");
+        console.log("PLAYER CHOSE PAPER");
         break;
       case 3:
         $(".playerSlot").addClass("scissors");
+        console.log("PLAYER CHOSE SCISSORS");
         break;
     }
 
+   //Delay how long it takes the house to choose
+   setTimeout(() => {
     gameLogic(choice);
+   }, houseDelay);
+
+
   };
 
-  // add or remove point (true, false)
+  // add or remove point (true, false) or tie when no aguments given.
   let winGame = (result) => {
 
+
+    //show win or lose message
     switch (result) {
       case true:
+        $(".winText").text("YOU WIN");
         score++;
         break;
       case false:
         if (score > 0) {
+          $(".winText").text("YOU LOST");
           score -= 1;
         }
         break;
+        default:
+          $(".winText").text("TIE");
     }
 
+    $('.gameResults').animate({width: '13.75rem'}, transitionTime * 3, function(){
+      $('.gameResults').animate({opacity: '100%'},transitionTime * 2);
+    });
+
+
+    //update score
     localStorage.setItem("score", score);
     $(".scoreText").text(score);
   };
@@ -60,12 +88,15 @@ $(document).ready(function () {
     switch (decision) {
       case 1:
         $(".emptySlot").addClass("choiceSlot rock playerSlot");
+        console.log("COMPUTER CHOSE ROCK");
         break;
       case 2:
         $(".emptySlot").addClass("choiceSlot paper playerSlot");
+        console.log("COMPUTER CHOSE PAPER");
         break;
       case 3:
         $(".emptySlot").addClass("choiceSlot scissors playerSlot");
+        console.log("COMPUTER CHOSE SCISSORS");
         break;
     }
 
@@ -77,9 +108,10 @@ $(document).ready(function () {
   let gameLogic = (player) => {
     let house = houseChoice();
 
-    if (player === house) {
+    if (player == house) {
       //tie
       console.log("tie");
+      winGame();
       return;
     }
 
@@ -103,17 +135,39 @@ $(document).ready(function () {
 
   //Toggle rule menu
   $(".rulesBtn").click(function () {
-    if( $('.rulesMenu').is(':visible')){
-      $('.rulesMenu').fadeOut();
-    }else{
-      $('.rulesMenu').fadeIn().css('display','flex');
+    if ($(".rulesMenu").is(":visible")) {
+      $(".rulesMenu").fadeOut();
+    } else {
+      $(".rulesMenu").fadeIn().css("display", "flex");
     }
   });
 
-  $('.rulesMenu').click(function (){
-       $('.rulesMenu').fadeOut();
-  })
+  $(".rulesMenu").click(function () {
+    $(".rulesMenu").fadeOut();
+  });
+
+  //Restart game (switch back to choose menu and reset slot classes to default)
+  $(".restartBtn").click(function () {
+    
+    //Hide game results
+    $('.gameResults').animate({width: '0'}, transitionTime * 3);
+    $('.gameResults').css('opacity', '0');
+
+     //hide battle menu
+    $(".battleMenu").fadeOut(transitionTime);
+
+    //reset choices (classes)
+    setTimeout(() => {
+    $(".houseSlot").removeClass("playerSlot rock paper scissors"); // remove classes
+    $(".houseSlot").addClass("emptySlot choiceSlot houseSlot"); // add defaults back
+
+    $(".playerSlot").removeClass("rock paper scissors"); //remove players classes
+    $(".playerSlot").addClass("choiceSlot playerSlot"); //add defaults back
+
+    $(".chooseMenu").fadeIn(transitionTime); //show choose menu
+    }, transitionTime);
 
 
-
+  });
+  
 });
