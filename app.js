@@ -51,9 +51,8 @@ $(document).ready(function () {
 
   };
 
-  // add or remove point (true, false) or tie when no aguments given.
+  // add or remove point (true, false) or tie when no aguments given, display results menu.
   let winGame = (result) => {
-
 
     //show win or lose message
     switch (result) {
@@ -63,17 +62,24 @@ $(document).ready(function () {
         break;
       case false:
         if (score > 0) {
-          $(".winText").text("YOU LOST");
+          $(".winText").text("YOU LOSE");
           score -= 1;
         }
         break;
         default:
           $(".winText").text("TIE");
     }
-
+   
+    //Phase in the results text
     $('.gameResults').animate({width: '13.75rem'}, transitionTime * 3, function(){
-      $('.gameResults').animate({opacity: '100%'},transitionTime * 2);
-    });
+    $('.gameResults').animate({opacity: '100%'},transitionTime * 2,);
+    //play winners animation
+    if(result){
+      $('.playerSlot').append("<div class='winner'></div>");
+     }else if(result != null){
+      $('.houseSlot').append("<div class='winner'></div>");
+     }
+  });
 
 
     //update score
@@ -87,15 +93,15 @@ $(document).ready(function () {
 
     switch (decision) {
       case 1:
-        $(".emptySlot").addClass("choiceSlot rock playerSlot");
+        $(".emptySlot").addClass("choiceSlot rock houseSlot");
         console.log("COMPUTER CHOSE ROCK");
         break;
       case 2:
-        $(".emptySlot").addClass("choiceSlot paper playerSlot");
+        $(".emptySlot").addClass("choiceSlot paper houseSlot");
         console.log("COMPUTER CHOSE PAPER");
         break;
       case 3:
-        $(".emptySlot").addClass("choiceSlot scissors playerSlot");
+        $(".emptySlot").addClass("choiceSlot scissors houseSlot");
         console.log("COMPUTER CHOSE SCISSORS");
         break;
     }
@@ -152,10 +158,11 @@ $(document).ready(function () {
     //Hide game results
     $('.gameResults').animate({width: '0'}, transitionTime * 3);
     $('.gameResults').css('opacity', '0');
+    $('.winner').remove();
 
      //hide battle menu
     $(".battleMenu").fadeOut(transitionTime);
-
+   
     //reset choices (classes)
     setTimeout(() => {
     $(".houseSlot").removeClass("playerSlot rock paper scissors"); // remove classes
@@ -169,5 +176,5 @@ $(document).ready(function () {
 
 
   });
-  
+
 });

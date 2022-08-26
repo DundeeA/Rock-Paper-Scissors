@@ -1,7 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap");
 
+
 :root {
   font-size: 16px;
+
+  /*Color varibles*/
+--ScissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+--PaperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+--RockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+--LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+--Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+--DarkText: hsl(229, 25%, 31%);
+--ScoreText: hsl(229, 64%, 46%);
+--HeaderOutline: hsl(217, 16%, 45%);
+--WinnerOutline: rgba(255, 255, 255, 0.015);
 }
 
 html,
@@ -39,7 +51,7 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  border: 3px solid hsl(217, 16%, 45%);
+  border: 3px solid var(--HeaderOutline);
   border-radius: 1rem;
 
   width: 43.5rem;
@@ -69,7 +81,7 @@ header {
 
 .scoreBoard p {
   font-size: 1em;
-  color: hsl(229, 64%, 46%);
+  color: var(--ScoreText);
   margin: 0;
   padding: 0;
   font-weight: 600;
@@ -93,12 +105,11 @@ header {
 
   width: 35.5rem;
 
-
   margin-top: 8vh;
- 
-  background-image: url('./images/bg-triangle.svg');
+
+  background-image: url("./images/bg-triangle.svg");
   background-repeat: no-repeat;
-  background-position: 50% 65%; 
+  background-position: 50% 65%;
 }
 
 .choiceSlot {
@@ -109,7 +120,6 @@ header {
 
   height: 9.62rem;
   border-width: 1.187rem;
-
 
   aspect-ratio: 1;
 
@@ -137,18 +147,18 @@ header {
 
 /*Choice styles*/
 #rock {
-margin-left: 11.6rem;
-margin-top: 2.2rem;
+  margin-left: 11.6rem;
+  margin-top: 2.2rem;
 }
 
 #paper {
   margin-left: 3rem;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
 }
 
 #scissors {
   margin-left: 5.4rem;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
 }
 
 .rock {
@@ -187,7 +197,7 @@ margin-top: 2.2rem;
   margin-top: 9.5vh;
 }
 
-.battleMenu p{
+.battleMenu p {
   font-size: 1.35rem;
   letter-spacing: 4px;
   font-weight: 600;
@@ -196,20 +206,21 @@ margin-top: 2.2rem;
   margin: 0%;
 }
 
-.playerContainer{
- margin-right: 2.5rem;
+.playerContainer {
+  margin-right: 2.5rem;
 }
 
-.houseContainer{
-  margin-left:  2.5rem;
+.houseContainer {
+  margin-left: 2.5rem;
 }
 
-.playerSlot {
-height: 14rem;
-border-width: 2rem;
-margin-top: 4rem;
-margin-bottom: 5rem;
-aspect-ratio: 1;
+.playerSlot,
+.houseSlot {
+  height: 14rem;
+  border-width: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 5rem;
+  aspect-ratio: 1;
 }
 
 .emptySlot {
@@ -224,45 +235,40 @@ aspect-ratio: 1;
   border-width: 0;
   border-color: #16213d00;
 
-
   background-color: #16213d;
-
 }
 
-.playerContainer, .houseContainer {
+.playerContainer,
+.houseContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
 }
 
-.gameResults{
+.gameResults {
   position: relative;
-   text-align: center;
+  text-align: center;
 
-   overflow: hidden;
-   white-space: nowrap;
+  overflow: hidden;
+  white-space: nowrap;
 
-   width: 0;
-   opacity: 0;
+  width: 0;
+  opacity: 0;
 
-
-   margin: 2.5rem;
+  margin: 2.5rem;
 }
 
-.gameResults p{
+.gameResults p {
   font-size: 3.2rem;
   font-weight: 700;
-  letter-spacing: .15rem;
+  letter-spacing: 0.15rem;
   margin: 0;
 }
 
-.gameResults button{
-
+.gameResults button {
   font-weight: 600;
-  letter-spacing: .15rem;
-
+  letter-spacing: 0.15rem;
 
   width: 13.75rem;
   height: 3rem;
@@ -271,10 +277,10 @@ aspect-ratio: 1;
   border-style: solid;
 
   margin-top: 1.2rem;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
+
+  color: var(--DarkText);
 }
-
-
 
 /*rules*/
 .rulesMenu {
@@ -288,6 +294,7 @@ aspect-ratio: 1;
   width: 25rem;
   border-radius: 0.7em;
   background-color: white;
+  box-shadow: 0 0 0 9999px #000000b0;
   z-index: 2;
 }
 
@@ -340,22 +347,65 @@ aspect-ratio: 1;
   right: 2.2vw;
   align-self: flex-end;
 
-  
   font-size: 0.9em;
   letter-spacing: 0.2vw;
 }
 
-.click:hover{
-cursor: pointer;
+.click:hover {
+  cursor: pointer;
 }
 
+/*Winner rings*/
+.winner {
+  position: absolute;
+
+  width: 100%;
+  aspect-ratio: 1;
+
+  border-radius: 100%;
+  border-width: 2rem;
+  border-style: solid;
+  border-color: #ffffff00;
+  background-color: #ffffff00;
+
+  animation-name: winnerAnimation;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-duration: 1s;
+
+  z-index: -2;
+}
+
+@keyframes winnerAnimation {
+  0% {
+    box-shadow: 0;
+  }
+
+  33% {
+    box-shadow: 0px 0px 0 3.937rem var(--WinnerOutline);
+  }
+
+  66% {
+    box-shadow: 0px 0px 0 3.937rem var(--WinnerOutline),
+      0px 0px 0 8.374rem var(--WinnerOutline);
+  }
+
+  100% {
+    box-shadow: 0px 0px 0 3.937rem var(--WinnerOutline),
+      0px 0px 0 8.374rem var(--WinnerOutline),
+      0px 0px 0 13.561rem var(--WinnerOutline);
+  }
+}
+
+
 /* Scaling adjustments for browser toolbar*/
-@media screen and ( max-height: 653px ) {
-  :root{
+@media screen and (max-height: 653px) {
+  :root {
     font-size: 13px;
   }
 
-  .chooseMenu{
-    background-position: 50% 100%; 
+  .chooseMenu {
+    background-position: 50% 100%;
   }
-} 
+}
