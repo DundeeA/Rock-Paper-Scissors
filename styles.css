@@ -1,19 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap");
 
-
 :root {
   font-size: 16px;
 
   /*Color varibles*/
---ScissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
---PaperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
---RockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
---LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
---Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
 --DarkText: hsl(229, 25%, 31%);
 --ScoreText: hsl(229, 64%, 46%);
 --HeaderOutline: hsl(217, 16%, 45%);
---WinnerOutline: rgba(255, 255, 255, 0.015);
+--WinnerOutline: rgba(255, 255, 255, 0.02);
 }
 
 html,
@@ -134,17 +128,6 @@ header {
   aspect-ratio: auto;
 }
 
-.triangle {
-  position: absolute;
-
-  top: 22rem;
-  left: 33rem;
-
-  width: 20rem;
-  z-index: -1;
-  display: none;
-}
-
 /*Choice styles*/
 #rock {
   margin-left: 11.6rem;
@@ -187,6 +170,26 @@ header {
 
 .scissors img {
   content: url("./images/icon-scissors.svg");
+}
+
+.spock{
+  border-color: #49BCCF;
+  box-shadow: 0px 10px 0 0 #2F8DAF, 0px 8px 0 0 #b8bdd3 inset;
+}
+
+.spock img{
+  content: url('/images/icon-spock.svg');
+  height: 50%;
+}
+
+.lizard{
+  border-color: #8D5DE7;
+  box-shadow: 0px 10px 0 0 #6037AD, 0px 8px 0 0 #b8bdd3 inset;
+}
+
+.lizard img{
+  content: url('/images/icon-lizard.svg');
+  height: 50%;
 }
 
 /*Battle menu*/
@@ -300,8 +303,9 @@ header {
 
 .rulesMenu img {
   align-self: center;
-  width: 76%;
-  height: 65.06%;
+  width: 90%;
+  height: 70%;
+  margin-top: 2%;
 }
 
 .rulesMenu div {
@@ -313,19 +317,18 @@ header {
 
 .rulesMenu p {
   text-align: left;
+  color: var(--DarkText);
   font-size: 2em;
   font-weight: 700;
-  margin-bottom: 12.289%;
-  margin-top: 9.156%;
+  margin-top: 5%;
   margin-left: 8.25%;
-  margin-right: 0;
 }
 
 .rulesMenu small {
-  font-size: 1.3em;
+  font-size: 1.4em;
   font-weight: 700;
-  margin-bottom: 12.289%;
-  margin-top: 9.156%;
+  color: var(--HeaderOutline);
+  margin-top: 5%;
   margin-left: 8.25%;
   margin-right: 0;
 }
@@ -335,13 +338,13 @@ header {
   width: 8.2rem;
   height: 2.65rem;
 
-  color: #878ba6;
-  border-color: #878ba6;
+  color: #ffffff;
+  border-color: #ffffff;
   background-color: #ffffff00;
 
   border-radius: 0.5em;
   border-style: solid;
-  border-width: 2px;
+  border-width: 1px;
 
   bottom: 4vh;
   right: 2.2vw;
@@ -395,6 +398,25 @@ header {
     box-shadow: 0px 0px 0 3.937rem var(--WinnerOutline),
       0px 0px 0 8.374rem var(--WinnerOutline),
       0px 0px 0 13.561rem var(--WinnerOutline);
+  }
+}
+
+
+@media screen and (max-height: 1080px) {
+  :root {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-height: 768px) {
+  :root {
+    font-size: 16px; 
+  }
+}
+
+@media screen and (max-height: 720px) {
+  :root {
+    font-size: 14px;
   }
 }
 
