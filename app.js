@@ -12,7 +12,7 @@ $(document).ready(function () {
   }
 
   //player chose an option
-  $('.chooseMenu').on('click', '.choiceSlot', function(){
+  $('.chooseMenu').on('mousedown touchstart', '.choiceSlot', function(){
     beginGame(parseInt(this.classList[1]));
   });
 
@@ -219,8 +219,6 @@ $(document).ready(function () {
     'content' : "url('./images/logo-bonus.svg')",
     'height' : '7.2rem'
    });
-
-
    $('.rulesMenu').find('img').css({
     'content' : "url('./images/image-rules-bonus.svg')",
     'height' : '90%',
@@ -281,7 +279,4 @@ $(document).ready(function () {
   });
   }else{ location.reload(true);}
 });
-
-
-
 });

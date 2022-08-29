@@ -4,10 +4,10 @@
   font-size: 16px;
 
   /*Color varibles*/
---DarkText: hsl(229, 25%, 31%);
---ScoreText: hsl(229, 64%, 46%);
---HeaderOutline: hsl(217, 16%, 45%);
---WinnerOutline: rgba(255, 255, 255, 0.02);
+  --DarkText: hsl(229, 25%, 31%);
+  --ScoreText: hsl(229, 64%, 46%);
+  --HeaderOutline: hsl(217, 16%, 45%);
+  --WinnerOutline: rgba(255, 255, 255, 0.02);
 }
 
 html,
@@ -38,6 +38,8 @@ main {
   flex-direction: column;
   width: 100%;
 }
+
+/*Scoreboard*/
 
 header {
   display: flex;
@@ -172,23 +174,23 @@ header {
   content: url("./images/icon-scissors.svg");
 }
 
-.spock{
-  border-color: #49BCCF;
-  box-shadow: 0px 10px 0 0 #2F8DAF, 0px 8px 0 0 #b8bdd3 inset;
+.spock {
+  border-color: #49bccf;
+  box-shadow: 0px 10px 0 0 #2f8daf, 0px 8px 0 0 #b8bdd3 inset;
 }
 
-.spock img{
-  content: url('/images/icon-spock.svg');
+.spock img {
+  content: url("/images/icon-spock.svg");
   height: 50%;
 }
 
-.lizard{
-  border-color: #8D5DE7;
-  box-shadow: 0px 10px 0 0 #6037AD, 0px 8px 0 0 #b8bdd3 inset;
+.lizard {
+  border-color: #8d5de7;
+  box-shadow: 0px 10px 0 0 #6037ad, 0px 8px 0 0 #b8bdd3 inset;
 }
 
-.lizard img{
-  content: url('/images/icon-lizard.svg');
+.lizard img {
+  content: url("/images/icon-lizard.svg");
   height: 50%;
 }
 
@@ -248,6 +250,8 @@ header {
   align-items: center;
   flex-direction: column;
 }
+
+/*Game results*/
 
 .gameResults {
   position: relative;
@@ -401,33 +405,232 @@ header {
   }
 }
 
+/*Desktop screens*/
 
-@media screen and (max-height: 1080px) {
+@media only screen and (max-width: 1920px) {
   :root {
-    font-size: 22px;
+    font-size: 21px;
+  }
+  .chooseMenu {
+    background-position: 50% 80%;
+    background-size: 60%;
   }
 }
 
-@media screen and (max-height: 768px) {
+@media only screen and (max-width: 1367px) {
   :root {
-    font-size: 16px; 
+    font-size: 16px;
   }
 }
 
-@media screen and (max-height: 720px) {
+@media only screen and (max-width: 1280px) {
   :root {
     font-size: 14px;
   }
+
+  .rulesBtn {
+    width: 10rem;
+    height: 3rem;
+  }
 }
 
-
-/* Scaling adjustments for browser toolbar*/
-@media screen and (max-height: 653px) {
+/*Smaller screens (Mobile)*/
+@media only screen and (max-width: 699px) {
   :root {
-    font-size: 13px;
+    font-size: 8px;
+  }
+
+  header {
+    height: 12rem;
+    width: 55rem;
+    margin-top: 4vh;
+  }
+
+  /*Choose menu*/
+  .chooseMenu {
+    width: 50rem;
+    margin-top: 15vh;
+    background-size: 70%;
+  }
+
+  .choiceSlot {
+    height: 15rem;
+    border-width: 2rem;
+  }
+
+  #rock {
+    margin-left: 15rem;
+    margin-top: 4rem;
+  }
+
+  /*Battle menu*/
+  .battleMenu {
+    flex-wrap: wrap;
+  }
+
+  .houseContainer {
+    margin: 0;
+    margin-right: 4rem;
+  }
+
+  .playerContainer {
+    margin: 0;
+    margin-left: 4rem;
+  }
+
+  /*game results*/
+
+  .gameResults {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 100vw;
+    margin-left: 38%;
+    margin-top: 0rem;
+
+    overflow: visible;
+    order: 1;
+  }
+
+  .gameResults p {
+    font-size: 8rem;
+  }
+
+  .gameResults button {
+    width: 32rem;
+    height: 7.5rem;
+    margin-top: 3rem;
+    color: var(--DarkText);
+  }
+
+  /*rules*/
+
+  .rulesBtn {
+    width: 24rem;
+    height: 8rem;
+
+    right: 34vw;
+    bottom: 10rem;
+    border-radius: 1.2rem;
+
+    font-size: 2em;
+    letter-spacing: 0.2vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  :root {
+    font-size: 6px;
+  }
+
+  .logo {
+    width: 15rem;
+    height: 10rem;
+  }
+
+  header {
+    height: 15rem;
+    width: 64rem;
+  }
+
+  /*Choose menu*/
+  .chooseMenu {
+    width: 63rem;
+    margin-top: 15vh;
+    background-size: 80%;
+  }
+
+  .choiceSlot {
+    height: 19rem;
+    border-width: 3rem;
+  }
+
+  #rock {
+    margin-left: 19rem;
+    margin-top: 5rem;
+  }
+
+  /*rules*/
+  .rulesBtn {
+    width: 30rem;
+    height: 9rem;
+
+    right: 28vw;
+    bottom: 8rem;
+    border-radius: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  :root {
+    font-size: 5px;
+  }
+
+  /*game results*/
+  .gameResults {
+    width: 100vw;
+    margin-left: 42%;
+    margin-top: 10rem;
+
+    overflow: visible;
+    order: 1;
+  }
+
+  .gameResults p {
+    font-size: 13rem;
+  }
+
+  .gameResults button {
+    width: 50rem;
+    height: 11rem;
+    margin-top: 3rem;
+    color: var(--DarkText);
+  }
+
+  /*rules*/
+  .rulesBtn {
+    width: 42rem;
+    height: 13rem;
+
+    right: 24vw;
+    bottom: 6vh;
+
+    border-radius: 2.5rem;
+    font-size: 3rem;
+  }
+
+  /*header*/
+
+  header {
+    height: 18rem;
+    width: 70rem;
+    margin-top: 4vh;
+  }
+
+  .logo {
+    width: 19rem;
+    height: 13rem;
+  }
+
+  .scoreBoard p {
+    font-size: 2em;
+  }
+
+  .scoreText {
+    font-size: 5rem;
+    margin-top: 1vh;
+  }
+}
+
+/*Scaling adjustments for browser toolbar*/
+@media screen and (min-width: 800px) and (max-height: 700px) {
+  :root {
+    font-size: 14px;
   }
 
   .chooseMenu {
-    background-position: 50% 100%;
+    background-position: 50% 75%;
   }
 }
