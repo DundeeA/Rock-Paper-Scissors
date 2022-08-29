@@ -299,6 +299,7 @@ header {
 
   height: 25.9rem;
   width: 25rem;
+  
   border-radius: 0.7em;
   background-color: white;
   box-shadow: 0 0 0 9999px #000000b0;
@@ -506,13 +507,37 @@ header {
   }
 
   /*rules*/
+  .rulesMenu {
+    top: 23%;
+  
+    height: auto;
+    width: 80%;
+    border-radius: 2em;
+  }
+  
+  .rulesMenu img {
+    align-self: center;
+    width: 90%;
+    height: 70%;
+    margin-bottom: 5%;
+  }
+  
+  .rulesMenu p {
+    font-size: 6em;
+    margin-top: 5%;
+    margin-left: 8.25%;
+  }
+  
+  .rulesMenu small {
+    font-size: 4em;
+  }
 
   .rulesBtn {
     width: 24rem;
     height: 8rem;
 
     right: 34vw;
-    bottom: 10rem;
+    bottom: 10vh;
     border-radius: 1.2rem;
 
     font-size: 2em;
@@ -557,8 +582,8 @@ header {
     width: 30rem;
     height: 9rem;
 
-    right: 28vw;
-    bottom: 8rem;
+    right: 32vw;
+    bottom: 10vh;
     border-radius: 1.2rem;
   }
 }
@@ -567,6 +592,27 @@ header {
   :root {
     font-size: 5px;
   }
+ /*header*/
+
+ header {
+  height: 18rem;
+  width: 70rem;
+  margin-top: 4vh;
+}
+
+.logo {
+  width: 19rem;
+  height: 13rem;
+}
+
+.scoreBoard p {
+  font-size: 2em;
+}
+
+.scoreText {
+  font-size: 5rem;
+  margin-top: 1vh;
+}
 
   /*game results*/
   .gameResults {
@@ -594,34 +640,13 @@ header {
     width: 42rem;
     height: 13rem;
 
-    right: 24vw;
-    bottom: 6vh;
+    right: 22vw;
+    bottom: 8vh;
 
     border-radius: 2.5rem;
     font-size: 3rem;
   }
 
-  /*header*/
-
-  header {
-    height: 18rem;
-    width: 70rem;
-    margin-top: 4vh;
-  }
-
-  .logo {
-    width: 19rem;
-    height: 13rem;
-  }
-
-  .scoreBoard p {
-    font-size: 2em;
-  }
-
-  .scoreText {
-    font-size: 5rem;
-    margin-top: 1vh;
-  }
 }
 
 /*Scaling adjustments for browser toolbar*/

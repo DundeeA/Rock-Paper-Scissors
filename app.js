@@ -2,6 +2,7 @@ $(document).ready(function () {
   let transitionTime = 300; //Fade in/out time
   let houseDelay = 1000; // Take time to decide
   let spockMode = false;
+  let gameComplete = true; //Used to prevent running the code multiple times at once
 
   //Retrieve score from storage
   let score = localStorage.getItem("score");
@@ -12,8 +13,11 @@ $(document).ready(function () {
   }
 
   //player chose an option
-  $('.chooseMenu').on('mousedown touchstart', '.choiceSlot', function(){
+  $('.chooseMenu').on('click', '.choiceSlot', function(){
+    if(gameComplete){
     beginGame(parseInt(this.classList[1]));
+    gameComplete = false;
+    }
   });
 
   // Update player slot and switch to battle menu
@@ -88,6 +92,8 @@ $(document).ready(function () {
     //update score
     localStorage.setItem("score", score);
     $(".scoreText").text(score);
+
+    gameComplete = true;
   };
 
   // Get computer choice and update empty slot
@@ -217,63 +223,64 @@ $(document).ready(function () {
    //Change images needed for spock mode
    $('.logo').css({
     'content' : "url('./images/logo-bonus.svg')",
-    'height' : '7.2rem'
+    'height' : '80%'
    });
    $('.rulesMenu').find('img').css({
     'content' : "url('./images/image-rules-bonus.svg')",
     'height' : '90%',
     'margin-bottom' : '4rem'
   });
-  $('.rulesMenu').css('height', '30rem');
+  $('.rulesMenu').css('height', 'auto');
  
 
   //Modify container (to pentagon)
   $('.chooseMenu').css({
     'background-image' : 'url("./images/bg-pentagon.svg")',
-    'background-size' : '87%',
+    'background-size' : '70%',
+    'background-position':'50% 60%',
     'overflow' : 'visible',
-     'width' : '25rem',
+     'width' : '100%',
      'aspect-ratio' : '1',
-     'margin-top' : '8vh'
+     'margin-top' : '20%'
    });
 
   //Shrink choices to fit on pentagon
   $('.chooseMenu').find('.choiceSlot').css({
-    'width' : '5.8125rem',
-    'height' : '5.8125rem',
-    'border-width' : '.8rem'
+    'width' : '18%',
+    'height' : 'auto',
+    'border-width' : '4%'
   });
 
  // Postion choices using margin
   $('#rock').css({
     'margin-left' : '0rem',
-    'margin-top' : '4rem',
+    'margin-top' : '10rem',
     'order' : 5
   });
  
   $('#paper').css({
-    'margin-left' : '1rem',
-    'margin-top' : '1rem',
+    'margin-left' : '0rem',
+    'margin-top' : '0rem',
     'order' : 3
   });
 
   $('#scissors').css({
-    'margin-right' : '5rem',
-    'margin-left' : '8.5rem',
-    'margin-top' : '0rem',
+    'margin-right' : '0',
+    'margin-left' : '29rem',
+    'margin-bottom' : '0',
     'order' : 1
   });
 
   $('#lizard').css({
-    'margin-left' : '2rem',
-    'margin-right' : '6rem',
-    'margin-top' : '4rem',
+    'margin-left' : '12rem',
+    'margin-right' : '15rem',
+    'margin-top' : '10rem',
     'order' : 4
   });
 
   $('#spock').css({
-    'margin-left' : '-1rem',
-    'margin-right' : '10rem',
+    'margin-left' : '6rem',
+    'margin-right' : '27rem',
     'margin-top' : '1rem',
     'order' : 2
   });
