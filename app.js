@@ -1,8 +1,10 @@
 $(document).ready(function () {
   let transitionTime = 300; //Fade in/out time
   let houseDelay = 1000; // Take time to decide
-  let spockMode = false;
-  let gameComplete = true; //Used to prevent running the code multiple times at once
+  let spockMode = false; // Allow computer to pick spock and lizard
+  let gameComplete = true; //Prevent running the code multiple times at once
+  let windowSize = $(window).width(); //Screen width for media queries
+
 
   //Retrieve score from storage
   let score = localStorage.getItem("score");
@@ -221,16 +223,16 @@ $(document).ready(function () {
     $('.chooseMenu').append('<div class="choiceSlot 5 lizard click" id="lizard"> <img src="" alt="" /></div>');
  
    //Change images needed for spock mode
-   $('.logo').css({
+    $('.logo').css({
     'content' : "url('./images/logo-bonus.svg')",
     'height' : '80%'
-   });
-   $('.rulesMenu').find('img').css({
+    });
+    $('.rulesMenu').find('img').css({
     'content' : "url('./images/image-rules-bonus.svg')",
     'height' : '90%',
     'margin-bottom' : '4rem'
-  });
-  $('.rulesMenu').css('height', 'auto');
+    });
+    $('.rulesMenu').css('height', 'auto');
  
 
   //Modify container (to pentagon)
@@ -238,10 +240,10 @@ $(document).ready(function () {
     'background-image' : 'url("./images/bg-pentagon.svg")',
     'background-size' : '70%',
     'background-position':'50% 60%',
-    'overflow' : 'visible',
+     'overflow' : 'visible',
      'width' : '100%',
      'aspect-ratio' : '1',
-     'margin-top' : '20%'
+     'margin-top' : '5%'
    });
 
   //Shrink choices to fit on pentagon
@@ -284,6 +286,8 @@ $(document).ready(function () {
     'margin-top' : '1rem',
     'order' : 2
   });
+
+  
   }else{ location.reload(true);}
 });
 });

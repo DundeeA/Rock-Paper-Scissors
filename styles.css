@@ -180,7 +180,7 @@ header {
 }
 
 .spock img {
-  content: url("/images/icon-spock.svg");
+  content: url("./images/icon-spock.svg");
   height: 50%;
 }
 
@@ -190,7 +190,7 @@ header {
 }
 
 .lizard img {
-  content: url("/images/icon-lizard.svg");
+  content: url("./images/icon-lizard.svg");
   height: 50%;
 }
 
@@ -299,7 +299,7 @@ header {
 
   height: 25.9rem;
   width: 25rem;
-  
+
   border-radius: 0.7em;
   background-color: white;
   box-shadow: 0 0 0 9999px #000000b0;
@@ -406,7 +406,7 @@ header {
   }
 }
 
-/*Desktop screens*/
+/*Large screens*/
 
 @media only screen and (max-width: 1920px) {
   :root {
@@ -435,7 +435,25 @@ header {
   }
 }
 
-/*Smaller screens (Mobile)*/
+/*Medium screens*/
+@media only screen and (max-width: 920px) {
+  .rulesBtn {
+    width: 13rem;
+    height: 4rem;
+    font-size: 1.3rem;
+  }
+
+  .scoreBoard p {
+    font-size: 1.4em;
+  }
+
+  .scoreText {
+    font-size: 4rem;
+    margin-top: 1vh;
+  }
+}
+
+/*Smaller screens*/
 @media only screen and (max-width: 699px) {
   :root {
     font-size: 8px;
@@ -462,6 +480,15 @@ header {
   #rock {
     margin-left: 15rem;
     margin-top: 4rem;
+  }
+
+  .playerContainer,
+  .houseContainer {
+    flex-direction: column-reverse;
+  }
+
+  .battleMenu p {
+    font-size: rem;
   }
 
   /*Battle menu*/
@@ -509,25 +536,25 @@ header {
   /*rules*/
   .rulesMenu {
     top: 23%;
-  
+
     height: auto;
     width: 80%;
     border-radius: 2em;
   }
-  
+
   .rulesMenu img {
     align-self: center;
     width: 90%;
     height: 70%;
     margin-bottom: 5%;
   }
-  
+
   .rulesMenu p {
     font-size: 6em;
     margin-top: 5%;
     margin-left: 8.25%;
   }
-  
+
   .rulesMenu small {
     font-size: 4em;
   }
@@ -537,7 +564,7 @@ header {
     height: 8rem;
 
     right: 34vw;
-    bottom: 10vh;
+    bottom: 2vh;
     border-radius: 1.2rem;
 
     font-size: 2em;
@@ -583,7 +610,6 @@ header {
     height: 9rem;
 
     right: 32vw;
-    bottom: 10vh;
     border-radius: 1.2rem;
   }
 }
@@ -592,27 +618,27 @@ header {
   :root {
     font-size: 5px;
   }
- /*header*/
+  /*header*/
 
- header {
-  height: 18rem;
-  width: 70rem;
-  margin-top: 4vh;
-}
+  header {
+    height: 18rem;
+    width: 70rem;
+    margin-top: 4vh;
+  }
 
-.logo {
-  width: 19rem;
-  height: 13rem;
-}
+  .logo {
+    width: 19rem;
+    height: 13rem;
+  }
 
-.scoreBoard p {
-  font-size: 2em;
-}
+  .scoreBoard p {
+    font-size: 2em;
+  }
 
-.scoreText {
-  font-size: 5rem;
-  margin-top: 1vh;
-}
+  .scoreText {
+    font-size: 5rem;
+    margin-top: 1vh;
+  }
 
   /*game results*/
   .gameResults {
@@ -641,12 +667,32 @@ header {
     height: 13rem;
 
     right: 22vw;
-    bottom: 8vh;
 
     border-radius: 2.5rem;
     font-size: 3rem;
   }
+}
 
+@media only screen and (max-width: 395px) {
+  :root {
+    font-size: 4px;
+  }
+
+  /*rules*/
+  .rulesBtn {
+    right: 29vw;
+  }
+}
+
+@media only screen and (max-width: 330px) {
+  :root {
+    font-size: 3.5px;
+  }
+
+  /*rules*/
+  .rulesBtn {
+    right: 29vw;
+  }
 }
 
 /*Scaling adjustments for browser toolbar*/
