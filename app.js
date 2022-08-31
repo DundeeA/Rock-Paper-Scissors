@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  
   let transitionTime = 300; //Fade in/out time
   let houseDelay = 1000; // Take time to decide
   let spockMode = false; // Allow computer to pick spock and lizard
@@ -77,6 +78,14 @@ $(document).ready(function () {
     }
 
     //Phase in the results text
+    $(".gameResults").css({
+        'width' : 0,
+        'opacity' : 0,
+        'display' : 'flex',
+        'overflow' : 'visible',
+        'flex-direction' : 'column'
+    });
+
     $(".gameResults").animate(
       { width: "13.75rem" },
       transitionTime * 3,
@@ -183,6 +192,7 @@ $(document).ready(function () {
     //Hide game results
     $(".gameResults").animate({ width: "0" }, transitionTime * 3);
     $(".gameResults").css("opacity", "0");
+    $(".gameResults").css("display", "none");
     $(".winner").remove();
 
     //hide battle menu

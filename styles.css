@@ -232,13 +232,13 @@ header {
   height: 14rem;
   aspect-ratio: 1;
 
-  margin-top: 6.4rem;
-  margin-bottom: 6.5rem;
+
+ 
 
   border-style: solid;
   border-radius: 100%;
-  border-width: 0;
-  border-color: #16213d00;
+  border-width: 2rem;
+  border-color: rgba(0, 0, 0, 0);
 
   background-color: #16213d;
 }
@@ -254,6 +254,7 @@ header {
 /*Game results*/
 
 .gameResults {
+  display: none;
   position: relative;
   text-align: center;
 
@@ -488,7 +489,7 @@ header {
   }
 
   .battleMenu p {
-    font-size: rem;
+    font-size: 2.5rem;
   }
 
   /*Battle menu*/
@@ -509,7 +510,6 @@ header {
   /*game results*/
 
   .gameResults {
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -563,8 +563,12 @@ header {
     width: 24rem;
     height: 8rem;
 
-    right: 34vw;
-    bottom: 2vh;
+   
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+
     border-radius: 1.2rem;
 
     font-size: 2em;
@@ -609,7 +613,9 @@ header {
     width: 30rem;
     height: 9rem;
 
-    right: 32vw;
+
+
+
     border-radius: 1.2rem;
   }
 }
@@ -666,7 +672,7 @@ header {
     width: 42rem;
     height: 13rem;
 
-    right: 22vw;
+  
 
     border-radius: 2.5rem;
     font-size: 3rem;
@@ -678,10 +684,6 @@ header {
     font-size: 4px;
   }
 
-  /*rules*/
-  .rulesBtn {
-    right: 29vw;
-  }
 }
 
 @media only screen and (max-width: 330px) {
@@ -691,7 +693,6 @@ header {
 
   /*rules*/
   .rulesBtn {
-    right: 29vw;
   }
 }
 
