@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@300;400;500;600;700&display=swap");
 
+
 :root {
   font-size: 16px;
 
@@ -8,6 +9,11 @@
   --ScoreText: hsl(229, 64%, 46%);
   --HeaderOutline: hsl(217, 16%, 45%);
   --WinnerOutline: rgba(255, 255, 255, 0.02);
+}
+
+button{
+  all: unset;
+  cursor: pointer;
 }
 
 html,
@@ -58,8 +64,8 @@ header {
 .logo {
   justify-self: flex-start;
   height: 6.2rem;
-  margin-left: 4%;
-  margin-top: 0.5%;
+
+  margin: 0.5% 0 0 4%;
 }
 
 .scoreBoard {
@@ -67,11 +73,12 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
+   
   height: 74.025%;
   width: 21.306%;
   margin-right: 3.125%;
   border-radius: 0.5em;
+  overflow: visible;
   background-color: white;
 }
 
@@ -115,12 +122,12 @@ header {
   position: relative;
 
   height: 9.62rem;
-  border-width: 1.187rem;
+
+  border: 1.187rem solid;
+  border-radius: 100%;
 
   aspect-ratio: 1;
 
-  border-style: solid;
-  border-radius: 100%;
 
   background-color: white;
 }
@@ -132,18 +139,17 @@ header {
 
 /*Choice styles*/
 #rock {
-  margin-left: 11.6rem;
-  margin-top: 2.2rem;
+  margin: 2.2rem 0 0 11.6rem;
 }
 
 #paper {
-  margin-left: 3rem;
-  margin-top: 0.2rem;
+ 
+  margin: 0.2rem 0 0 3rem;
 }
 
 #scissors {
-  margin-left: 5.4rem;
-  margin-top: 0.2rem;
+
+  margin: 0.2rem 0 0 5.4rem;
 }
 
 .rock {
@@ -223,8 +229,7 @@ header {
 .houseSlot {
   height: 14rem;
   border-width: 2rem;
-  margin-top: 4rem;
-  margin-bottom: 5rem;
+  margin: 4rem 0 5rem 0;
   aspect-ratio: 1;
 }
 
@@ -234,11 +239,9 @@ header {
 
 
  
-
-  border-style: solid;
+  border: 2rem solid rgba(0, 0, 0, 0);
   border-radius: 100%;
-  border-width: 2rem;
-  border-color: rgba(0, 0, 0, 0);
+
 
   background-color: #16213d;
 }
@@ -274,21 +277,28 @@ header {
   margin: 0;
 }
 
-.gameResults button {
+.restartBtn {
   font-weight: 600;
+  font-size: 1rem;
   letter-spacing: 0.15rem;
 
   width: 13.75rem;
   height: 3rem;
 
-  border-radius: 0.5em;
-  border-style: solid;
+  border-radius: .7rem;
+  border: none;
 
-  margin-top: 1.2rem;
-  margin-bottom: 0.7rem;
+  margin: 1.2rem 0 0.7rem 0;
 
   color: var(--DarkText);
+
+  background-color: rgb(231, 231, 231);
 }
+
+.restartBtn:hover{
+  color: rgb(172, 2, 2);
+}
+
 
 /*rules*/
 .rulesMenu {
@@ -311,8 +321,8 @@ header {
   align-self: center;
   width: 90%;
   height: 70%;
-  margin-top: 2%;
-  margin-bottom: 3%;
+
+  margin: 2% 0 3% 0;
 }
 
 .rulesMenu div {
@@ -327,43 +337,40 @@ header {
   color: var(--DarkText);
   font-size: 2em;
   font-weight: 700;
-  margin-top: 5%;
-  margin-left: 8.25%;
+
+  margin: 5% 0 0 8.25%;
 }
 
 .rulesMenu small {
   font-size: 1.4em;
   font-weight: 700;
   color: var(--HeaderOutline);
-  margin-top: 5%;
-  margin-left: 8.25%;
-  margin-right: 0;
+
+  margin: 5% 0 0 8.25%;
 }
 
 .rulesBtn {
   position: absolute;
+  
   width: 8.2rem;
   height: 2.65rem;
 
   color: #ffffff;
-  border-color: #ffffff;
   background-color: #ffffff00;
 
+
   border-radius: 0.5em;
-  border-style: solid;
-  border-width: 1px;
+  border: 1px solid #ffffff;
 
   bottom: 4vh;
   right: 2.2vw;
   align-self: flex-end;
 
   font-size: 0.9em;
+  text-align: center;
   letter-spacing: 0.2vw;
 }
 
-.click:hover {
-  cursor: pointer;
-}
 
 /*Winner rings*/
 .winner {
@@ -373,9 +380,8 @@ header {
   aspect-ratio: 1;
 
   border-radius: 100%;
-  border-width: 2rem;
-  border-style: solid;
-  border-color: #ffffff00;
+  border: 2rem solid #ffffff00;
+
   background-color: #ffffff00;
 
   animation-name: winnerAnimation;
@@ -480,8 +486,7 @@ header {
   }
 
   #rock {
-    margin-left: 15rem;
-    margin-top: 4rem;
+    margin: 4rem 0 0 15rem;
   }
 
   .playerContainer,
@@ -499,13 +504,11 @@ header {
   }
 
   .houseContainer {
-    margin: 0;
-    margin-right: 4rem;
+    margin: 0 4rem 0 0;
   }
 
   .playerContainer {
-    margin: 0;
-    margin-left: 4rem;
+    margin: 0 0 0 4rem;
   }
 
   /*game results*/
@@ -516,20 +519,24 @@ header {
     flex-direction: column;
 
     width: 100vw;
-    margin-left: 38%;
-    margin-top: 0rem;
+
+    margin: 14rem 0 0 38%;
 
     overflow: visible;
     order: 1;
   }
 
   .gameResults p {
-    font-size: 8rem;
+    font-size: 10rem;
   }
 
-  .gameResults button {
-    width: 32rem;
+  .restartBtn {
+    width: 34rem;
     height: 7.5rem;
+
+    font-size: 2rem;
+    border-radius: 1.5rem;
+
     margin-top: 3rem;
     color: var(--DarkText);
   }
@@ -552,8 +559,7 @@ header {
 
   .rulesMenu p {
     font-size: 6em;
-    margin-top: 5%;
-    margin-left: 8.25%;
+    margin: 5% 0 0 8.25%;
   }
 
   .rulesMenu small {
@@ -605,8 +611,7 @@ header {
   }
 
   #rock {
-    margin-left: 19rem;
-    margin-top: 5rem;
+    margin: 5rem 0 0 19rem;
   }
 
   /*rules*/
@@ -618,6 +623,26 @@ header {
 
 
     border-radius: 1.2rem;
+  }
+
+  
+  
+  .gameResults{
+    margin-top: 15rem;
+
+  }
+  .gameResults p{
+    font-size: 10rem;
+  } 
+  .restartBtn {
+    width: 40rem;
+    height: 9rem;
+
+    font-size: 3rem;
+    border-radius: 1.5rem;
+
+    margin-top: 3rem;
+    color: var(--DarkText);
   }
 }
 
@@ -650,8 +675,9 @@ header {
   /*game results*/
   .gameResults {
     width: 100vw;
-    margin-left: 42%;
-    margin-top: 10rem;
+
+    margin: 10rem 0 0 42%;
+    
 
     overflow: visible;
     order: 1;
@@ -661,9 +687,13 @@ header {
     font-size: 13rem;
   }
 
-  .gameResults button {
+  .restartBtn {
     width: 50rem;
     height: 11rem;
+
+    font-size: 4rem;
+    border-radius: 1.5rem;
+
     margin-top: 3rem;
     color: var(--DarkText);
   }

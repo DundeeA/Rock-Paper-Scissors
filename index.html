@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta name="description" content="Jquery rock paper scissors!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="jquery-3.6.0.min.js"></script>
     <link
@@ -37,24 +38,24 @@
     </header>
 
     <main>
-      <section class="chooseMenu">
+      <div class="chooseMenu">
 
-        <div class="choiceSlot 2 paper click" id="paper">
+        <button aria-label="paper" class="choiceSlot 2 paper" id="paper">
           <img src="" alt="" />
-        </div>
+        </button>
 
-        <div class="choiceSlot 3 scissors click" id="scissors">
+        <button aria-label="scissors" class="choiceSlot 3 scissors" id="scissors">
           <img src="./images/icon-scissors.svg" alt="" />
-        </div>
+        </button>
         
-        <div class="choiceSlot 1 rock click" id="rock">
+        <button aria-label="rock" class="choiceSlot 1 rock" id="rock">
           <img src="" alt="" />
-        </div>
+        </button>
         
      
-      </section>
+      </div>
 
-      <section class="battleMenu">
+      <div class="battleMenu">
         <!--Players choice-->
         <div class="playerContainer">
           <p>YOU PICKED</p>
@@ -77,13 +78,11 @@
             <img src="" alt="">
           </div>
         </div>
-      </section>
+      </div>
 
       <div class="rulesMenu">
          <div><p>RULES</p> <small class="closeBtn click">&#x2715</small></div>
         <img src="./images/image-rules.svg" alt="">
-
-        <div class="darkBG"></div>
       </div>
 
       <button class="rulesBtn click">RULES</button>

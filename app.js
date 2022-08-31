@@ -227,7 +227,6 @@ $(document).ready(function () {
     $(".rulesMenu").fadeOut();
   });
 
-
 // Update scaling values based on screen size (Media queries)
     function updateScale(){
     let windowSize = $(window).width();
@@ -241,13 +240,13 @@ $(document).ready(function () {
 
     if(windowSize < 450){
       chooseMenuSize = '90%';
-      chooseMenuSpacing = '30%';
+      chooseMenuSpacing = '20%';
       return;
     }
 
     if(windowSize < 490){
       chooseMenuSize = '80%';
-      chooseMenuSpacing = '30%';
+      chooseMenuSpacing = '20%';
       return;
     }
 
@@ -364,7 +363,6 @@ $(document).ready(function () {
  });
    }
 
-
   //Switch to spock mode
   $(".logo").click(function () {
     if (!spockMode) {
@@ -372,10 +370,10 @@ $(document).ready(function () {
      
       //Instaiate extra slots
       $(".chooseMenu").append(
-        '<div class="choiceSlot 4 spock click" id="spock"> <img src="" alt="" /></div>'
-      );
+        '<button aria-label="spock" class="choiceSlot 4 spock" id="spock"> <img src="" alt="" /></button>'
+      ); 
       $(".chooseMenu").append(
-        '<div class="choiceSlot 5 lizard click" id="lizard"> <img src="" alt="" /></div>'
+        '<button aria-label="lizard" class="choiceSlot 5 lizard" id="lizard"> <img src="" alt="" /></button>'
       );
 
       //Change images needed for spock mode
@@ -396,6 +394,7 @@ $(document).ready(function () {
     }
   });
 
+  
   //Update CSS as the page gets resized
  $(window).resize(function (){
   if(!spockMode){return;}
