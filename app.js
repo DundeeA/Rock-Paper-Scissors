@@ -10,12 +10,17 @@ $(document).ready(function () {
 
 
   //Retrieve score from storage
-  let score = localStorage.getItem("score");
-  if (score) {
-    $(".scoreText").text(score);
-  } else {
-    localStorage.setItem("score", 0);
-  }
+  let score;
+
+if(localStorage.getItem("score") == null){
+  score = localStorage.setItem("score", 0);
+  $(".scoreText").text(score);
+}else{
+  score =localStorage.getItem("score");
+} 
+
+
+
 
   //player chose an option
   $(".chooseMenu").on("click", ".choiceSlot", function () {
@@ -394,7 +399,7 @@ $(document).ready(function () {
     }
   });
 
-  
+
   //Update CSS as the page gets resized
  $(window).resize(function (){
   if(!spockMode){return;}

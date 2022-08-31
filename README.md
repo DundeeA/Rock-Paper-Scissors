@@ -1,6 +1,6 @@
 # Frontend Mentor - Rock, papaer, scissors!
 
-This is a solution to the [Rock, Paper, Scissors game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH/). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is my solution to the [Rock, Paper, Scissors game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH/). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
 ## Table of contents
 
@@ -11,7 +11,6 @@ This is a solution to the [Rock, Paper, Scissors game challenge on Frontend Ment
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
 
 
@@ -22,7 +21,7 @@ This is a solution to the [Rock, Paper, Scissors game challenge on Frontend Ment
 ### Links
 
 - Solution URL: [Frontend Mentor Solution]()
-- Live Site URL: [Live Site at Vercel](https://dundeea.github.io/Rock-Paper-Scissors/)
+- Live Site URL: [Live Site](https://dundeea.github.io/Rock-Paper-Scissors/)
 ## My process
 
 ### Built with
@@ -39,5 +38,5 @@ This is a solution to the [Rock, Paper, Scissors game challenge on Frontend Ment
 
 
 ## Author
-- Github - [Dun](https://github.com/DundeeA)
+- Github - [@DundeeA](https://github.com/DundeeA)
 - Frontend Mentor - [@DundeeA](https://www.frontendmentor.io/profile/DundeeA)
