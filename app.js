@@ -1,10 +1,12 @@
 $(document).ready(function () {
-  
   let transitionTime = 300; //Fade in/out time
   let houseDelay = 1000; // Take time to decide
   let spockMode = false; // Allow computer to pick spock and lizard
   let gameComplete = true; //Prevent running the code multiple times at once
-  let windowSize = $(window).width(); //Screen width for media queries
+
+  //Variables for responsiveness
+  let chooseMenuSize;
+  let chooseMenuSpacing;
 
 
   //Retrieve score from storage
@@ -16,10 +18,10 @@ $(document).ready(function () {
   }
 
   //player chose an option
-  $('.chooseMenu').on('click', '.choiceSlot', function(){
-    if(gameComplete){
-    beginGame(parseInt(this.classList[1]));
-    gameComplete = false;
+  $(".chooseMenu").on("click", ".choiceSlot", function () {
+    if (gameComplete) {
+      beginGame(parseInt(this.classList[1]));
+      gameComplete = false;
     }
   });
 
@@ -79,11 +81,11 @@ $(document).ready(function () {
 
     //Phase in the results text
     $(".gameResults").css({
-        'width' : 0,
-        'opacity' : 0,
-        'display' : 'flex',
-        'overflow' : 'visible',
-        'flex-direction' : 'column'
+      width: 0,
+      opacity: 0,
+      display: "flex",
+      overflow: "visible",
+      "flex-direction": "column",
     });
 
     $(".gameResults").animate(
@@ -200,7 +202,9 @@ $(document).ready(function () {
 
     //reset choices (classes)
     setTimeout(() => {
-      $(".houseSlot").removeClass("playerSlot rock paper scissors lizard spock"); // remove classes
+      $(".houseSlot").removeClass(
+        "playerSlot rock paper scissors lizard spock"
+      ); // remove classes
       $(".houseSlot").addClass("emptySlot choiceSlot houseSlot"); // add defaults back
 
       $(".playerSlot").removeClass("rock paper scissors lizard spock"); //remove players classes
@@ -223,81 +227,180 @@ $(document).ready(function () {
     $(".rulesMenu").fadeOut();
   });
 
-  //Enable Spock mode
-  $('.logo').click(function () {
-   if(!spockMode){
-    spockMode = true;
-  
-    //Instaiate extra slots
-    $('.chooseMenu').append('<div class="choiceSlot 4 spock click" id="spock"> <img src="" alt="" /></div>');
-    $('.chooseMenu').append('<div class="choiceSlot 5 lizard click" id="lizard"> <img src="" alt="" /></div>');
- 
-   //Change images needed for spock mode
-    $('.logo').css({
-    'content' : "url('./images/logo-bonus.svg')",
-    'height' : '80%'
-    });
-    $('.rulesMenu').find('img').css({
-    'content' : "url('./images/image-rules-bonus.svg')",
-    'height' : '90%',
-    'margin-bottom' : '4rem'
-    });
-    $('.rulesMenu').css('height', 'auto');
- 
 
+// Update scaling values based on screen size (Media queries)
+    function updateScale(){
+    let windowSize = $(window).width();
+    
+
+    if(windowSize < 301){
+      chooseMenuSize = '100%';
+      chooseMenuSpacing = '50%';
+      return;
+    }
+
+    if(windowSize < 450){
+      chooseMenuSize = '90%';
+      chooseMenuSpacing = '30%';
+      return;
+    }
+
+    if(windowSize < 490){
+      chooseMenuSize = '80%';
+      chooseMenuSpacing = '30%';
+      return;
+    }
+
+    if(windowSize < 630){
+      chooseMenuSize = '76%';
+      chooseMenuSpacing = '20%';
+      return;
+    }
+
+    if(windowSize < 750){
+      chooseMenuSize = '70%';
+      chooseMenuSpacing = '10%';
+      return;
+    }
+
+    if(windowSize < 910){
+      chooseMenuSize = '60%';
+      chooseMenuSpacing = '10%';
+      return;
+    }
+
+    if(windowSize < 1200){
+      chooseMenuSize = '50%';
+      chooseMenuSpacing = '7%';
+      return;
+    }
+
+    if(windowSize < 1367){
+      chooseMenuSize = '30%';
+      chooseMenuSpacing = '1%';
+      return;
+    }
+
+    if(windowSize < 1470){
+      chooseMenuSize = '40%';
+      chooseMenuSpacing = '4%';
+      return;
+    }
+
+    if(windowSize < 1670){
+      chooseMenuSize = '34%';
+      chooseMenuSpacing = '4%';
+      return;
+    }
+
+    if(windowSize < 1700){
+      chooseMenuSize = '30%';
+      chooseMenuSpacing = '4%';
+      return;
+    }
+
+    if(windowSize < 1921){
+      chooseMenuSize = '30%';
+      chooseMenuSpacing = '2%';
+      return;
+    }
+
+  }
+
+ // Resize the battle menu and child elements (for spock mode)
+    let updateCSS = () =>{
+  updateScale();
   //Modify container (to pentagon)
-  $('.chooseMenu').css({
-    'background-image' : 'url("./images/bg-pentagon.svg")',
-    'background-size' : '70%',
-    'background-position':'50% 60%',
-     'overflow' : 'visible',
-     'width' : '100%',
-     'aspect-ratio' : '1',
-     'margin-top' : '5%'
-   });
+  $(".chooseMenu").css({
+   "background-image": 'url("./images/bg-pentagon.svg")',
+   "background-size": "90%",
+   "background-position": "0% 70%",
+   overflow: "visible",
+   width: chooseMenuSize,  //edit this vaule for responsivness
+   height: 'auto',
+   "aspect-ratio": "1",
+   "margin-top": chooseMenuSpacing, //edit this vaule for responsivness
+ });
 
-  //Shrink choices to fit on pentagon
-  $('.chooseMenu').find('.choiceSlot').css({
-    'width' : '18%',
-    'height' : 'auto',
-    'border-width' : '4%'
+ //Shrink choices to fit on pentagon
+ $(".chooseMenu").find(".choiceSlot").css({
+   width: "25%",
+   height: "auto",
+   "border-width": "2%",
+ });
+
+ // Postion choices
+ $("#rock").css({
+   "margin-left": "0rem",
+   "margin-top": "10%",
+   order: 5,
+ });
+
+ $("#paper").css({
+   "margin-left": "0rem",
+   "margin-top": "0rem",
+   order: 3,
+ });
+
+ $("#scissors").css({
+   "margin-right": "20%",
+   "margin-left": "30%",
+   "margin-bottom": "0",
+   order: 1,
+ });
+
+ $("#lizard").css({
+   "margin-left": "0rem",
+   "margin-right": "26%",
+   "margin-top": "10%",
+   order: 4,
+ });
+
+ $("#spock").css({
+   "margin-left": "-3%",
+   "margin-right": "33%",
+   "margin-top": "0rem",
+   order: 2,
+ });
+   }
+
+
+  //Switch to spock mode
+  $(".logo").click(function () {
+    if (!spockMode) {
+      spockMode = true;
+     
+      //Instaiate extra slots
+      $(".chooseMenu").append(
+        '<div class="choiceSlot 4 spock click" id="spock"> <img src="" alt="" /></div>'
+      );
+      $(".chooseMenu").append(
+        '<div class="choiceSlot 5 lizard click" id="lizard"> <img src="" alt="" /></div>'
+      );
+
+      //Change images needed for spock mode
+      $(".logo").css({
+        content: "url('./images/logo-bonus.svg')",
+        height: "80%",
+      });
+      $(".rulesMenu").find("img").css({
+        content: "url('./images/image-rules-bonus.svg')",
+        height: "90%",
+        "margin-bottom": "4rem",
+      });
+
+      updateCSS();
+
+    } else {
+      location.reload(true);
+    }
   });
 
- // Postion choices using margin
-  $('#rock').css({
-    'margin-left' : '0rem',
-    'margin-top' : '10rem',
-    'order' : 5
-  });
- 
-  $('#paper').css({
-    'margin-left' : '0rem',
-    'margin-top' : '0rem',
-    'order' : 3
-  });
+  //Update CSS as the page gets resized
+ $(window).resize(function (){
+  if(!spockMode){return;}
+  updateCSS();
+ });
 
-  $('#scissors').css({
-    'margin-right' : '0',
-    'margin-left' : '29rem',
-    'margin-bottom' : '0',
-    'order' : 1
-  });
 
-  $('#lizard').css({
-    'margin-left' : '12rem',
-    'margin-right' : '15rem',
-    'margin-top' : '10rem',
-    'order' : 4
-  });
-
-  $('#spock').css({
-    'margin-left' : '6rem',
-    'margin-right' : '27rem',
-    'margin-top' : '1rem',
-    'order' : 2
-  });
-
-  
-  }else{ location.reload(true);}
-});
 });
