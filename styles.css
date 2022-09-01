@@ -416,6 +416,16 @@ header {
 
 /*Large screens*/
 
+@media only screen and (max-width: 3900px) {
+  :root {
+    font-size: 35px;
+  }
+  .chooseMenu {
+    background-position: 50% 80%;
+    background-size: 60%;
+  }
+}
+
 @media only screen and (max-width: 1920px) {
   :root {
     font-size: 21px;
