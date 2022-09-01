@@ -10,11 +10,10 @@ $(document).ready(function () {
 
 
   //Retrieve score from storage
-  let score = 0;
+  let score = 12;
 
 if(localStorage.getItem("score") == null || localStorage.getItem("score") ==  NaN){
-  localStorage.setItem("score", 0);
-  score = parseInt(localStorage.getItem("score"));
+  localStorage.setItem("score", 12);
   $(".scoreText").text(score);
 }else{
   score = parseInt(localStorage.getItem("score"));
