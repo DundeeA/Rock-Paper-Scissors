@@ -10,13 +10,15 @@ $(document).ready(function () {
 
 
   //Retrieve score from storage
-  let score;
+  let score = 0;
 
-if(localStorage.getItem("score") == null){
-  score = localStorage.setItem("score", 0);
+if(localStorage.getItem("score") == null || localStorage.getItem("score") ==  NaN){
+  localStorage.setItem("score", 0);
+  score = parseInt(localStorage.getItem("score"));
   $(".scoreText").text(score);
 }else{
-  score =localStorage.getItem("score");
+  score = parseInt(localStorage.getItem("score"));
+  $(".scoreText").text(score);
 } 
 
 
