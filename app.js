@@ -376,10 +376,10 @@ if(localStorage.getItem("score") == null || localStorage.getItem("score") ==  Na
      
       //Instaiate extra slots
       $(".chooseMenu").append(
-        '<button aria-label="spock" class="choiceSlot 4 spock" id="spock"> <img src="" alt="" /></button>'
+        '<button aria-label="spock" class="choiceSlot 4 spock" id="spock"> <img src="" alt="spock" /></button>'
       ); 
       $(".chooseMenu").append(
-        '<button aria-label="lizard" class="choiceSlot 5 lizard" id="lizard"> <img src="" alt="" /></button>'
+        '<button aria-label="lizard" class="choiceSlot 5 lizard" id="lizard"> <img src="" alt="lizard" /></button>'
       );
 
       //Change images needed for spock mode
