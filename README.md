@@ -1,4 +1,4 @@
-# Frontend Mentor - Rock, papaer, scissors!
+# Frontend Mentor - Rock, paper, scissors!
 
 This is my solution to the [Rock, Paper, Scissors game challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rock-paper-scissors-game-pTgwgvgH/). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
